@@ -1,0 +1,702 @@
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Universo del Açaí | Origen, Nutrición y Recetas</title>
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Descubre todo sobre el açaí: su origen ancestral en la Amazonía, sus potentes beneficios antioxidantes y recetas paso a paso para preparar el bowl perfecto.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="El Universo del Açaí | Guía Completa de Superalimentos">
+    <meta property="og:description" content="Explora la historia, nutrición y recetas del oro morado de la Amazonía. Aprende a crear combinaciones deliciosas y saludables.">
+    <meta property="og:image" content="assets/img/acaifruit.png">
+    <meta property="og:type" content="website">
+
+    <!-- JSON-LD Structured Data: Article & FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "El Universo del Açaí | Origen, Nutrición y Recetas",
+      "description": "Explora el origen, los beneficios nutricionales y las mejores formas de preparar açaí, el superalimento antioxidante de la Amazonía.",
+      "author": {
+        "@type": "Person",
+        "name": "Naira Medrano"
+      },
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es el açaí?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El açaí es el fruto de una palmera nativa de la selva amazónica, conocido por su intenso color morado y su alta concentración de antioxidantes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuáles son los beneficios del açaí?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Es rico en antocianinas, grasas saludables (Omega 3, 6 y 9), fibra y vitaminas, lo que ayuda a combatir el envejecimiento celular y mejorar la salud cardiovascular."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo se consume tradicionalmente?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En la Amazonía se consume tradicionalmente como un alimento salado acompañando pescado o camarones, mientras que globalmente es popular en forma de sorbete dulce o bowls de frutas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿El açaí tiene mucho azúcar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La fruta pura tiene un contenido de azúcar muy bajo. El azúcar suele provenir de los jarabes de guaraná o endulzantes añadidos durante su procesamiento comercial."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es la clave para un buen bowl de açaí?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La clave es la temperatura de la pulpa y usar fruta congelada para obtener una textura cremosa y espesa, similar a un helado, sin necesidad de añadir hielo."
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Estilos Personalizados -->
+    <style>
+        :root {
+            --acai-primary: #4A154B;
+            --acai-dark: #2E1030;
+            --acai-accent: #F5DEB3;
+            --bg-neutral: #FDFBF7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-neutral);
+            color: #2D3748;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, .font-title {
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .bg-acai { background-color: var(--acai-primary); }
+        .text-acai { color: var(--acai-primary); }
+        .border-acai { border-color: var(--acai-primary); }
+
+        /* Mejora de espaciado y legibilidad */
+        section {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+        }
+
+        /* Botones y Elementos Interactivos */
+        .btn-modern {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+        }
+        
+        .btn-modern:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-btn {
+            transition: all 0.2s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .recipe-btn.active {
+            background-color: var(--acai-primary);
+            color: white;
+            border-color: var(--acai-primary);
+            box-shadow: 0 4px 10px rgba(74, 21, 75, 0.2);
+        }
+
+        /* Sombras y Redondeados Suaves */
+        .card-modern {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .card-modern:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Hero Image Styles */
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('assets/img/acaifruit.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* History Image Container */
+        .history-img-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1024px;
+            height: 500px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            margin: 0 auto;
+        }
+
+        .history-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .history-img-wrapper:hover .history-img {
+            transform: scale(1.08);
+        }
+
+        .history-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+        }
+
+        /* Recipe Hero */
+        .recipe-hero-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .recipe-hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .recipe-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 40%, rgba(74, 21, 75, 0.7));
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+        }
+
+        /* Pasión Image Wrapper */
+        .pasion-img-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: all 0.5s ease;
+            transform: rotate(2deg);
+        }
+
+        .pasion-img-wrapper:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .pasion-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .pasion-img-wrapper:hover .pasion-img {
+            transform: scale(1.05);
+        }
+
+        .pasion-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent 70%);
+        }
+
+        /* Animaciones */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.7s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 bg-[#FDFBF7]/90 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                    <span class="text-3xl transition-transform group-hover:rotate-12">🌴</span>
+                    <span class="font-bold text-xl text-acai tracking-tight font-title">Açaí Explorer</span>
+                </div>
+                
+                <button id="menu-toggle" class="p-2.5 rounded-lg text-acai hover:bg-gray-100 transition-colors focus:outline-none" aria-label="Abrir menú">
+                    <div class="w-6 h-0.5 bg-acai mb-1.5 transition-all" id="line1"></div>
+                    <div class="w-6 h-0.5 bg-acai mb-1.5 transition-all" id="line2"></div>
+                    <div class="w-6 h-0.5 bg-acai transition-all" id="line3"></div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menú Lateral -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 bg-acai z-[60] shadow-2xl flex flex-col p-10 space-y-8">
+        <div class="flex justify-end">
+            <button id="close-menu" class="text-white/80 text-4xl hover:text-white transition-colors" aria-label="Cerrar menú">&times;</button>
+        </div>
+        <a href="#historia" class="text-white/90 text-xl font-semibold hover:text-white transition nav-link font-title">Historia</a>
+        <a href="#nutricion" class="text-white/90 text-xl font-semibold hover:text-white transition nav-link font-title">Nutrición</a>
+        <a href="#recetas" class="text-white/90 text-xl font-semibold hover:text-white transition nav-link font-title">Recetas</a>
+        <a href="#pasion" class="text-white/90 text-xl font-semibold hover:text-white transition nav-link font-title">Mi Pasión</a>
+        <a href="#faq" class="text-white/90 text-xl font-semibold hover:text-white transition nav-link font-title">Preguntas Frecuentes</a>
+        <a href="#comunidad" class="text-white/90 text-xl font-semibold hover:text-white transition nav-link font-title">Comunidad</a>
+    </div>
+    
+    <div id="menu-overlay" class="fixed inset-0 bg-black/40 z-[55] hidden opacity-0 transition-opacity"></div>
+
+    <!-- Header / Hero -->
+    <header class="hero-section pt-40 pb-32 md:pt-56 md:pb-48 text-white relative flex items-center justify-center min-h-[85vh]">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center relative z-10">
+            <div class="text-6xl mb-8 animate-pulse opacity-90 drop-shadow-2xl">🥣</div>
+            <h1 class="text-4xl md:text-7xl font-bold mb-8 leading-[1.1] max-w-4xl drop-shadow-lg">El Oro Morado de <br><span class="text-[#F5DEB3]">la Amazonía</span></h1>
+            <p class="mt-4 max-w-2xl text-lg md:text-xl text-gray-100 font-medium drop-shadow-md">
+                Descubre el viaje del açaí: desde las tradiciones indígenas en las profundidades de Brasil hasta convertirse en el superalimento global favorito.
+            </p>
+            <a href="#historia" class="mt-12 px-10 py-4 bg-[#F5DEB3] text-[#4A154B] font-bold rounded-full btn-modern shadow-2xl">
+                Iniciar el Viaje 👇
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Historia / Raíces y Evolución -->
+        <section id="historia" class="reveal">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold text-acai mb-6">Raíces y Evolución</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+                        Conoce el viaje histórico y cultural de este fruto antes de llegar a nuestros tazones.
+                    </p>
+                </div>
+
+                <div class="mb-20">
+                    <div class="history-img-wrapper">
+                        <img src="assets/img/acaipalm.png" alt="Raíces y evolución del açaí" class="history-img">
+                        <div class="history-img-overlay"></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="p-10 card-modern">
+                        <div class="text-4xl mb-6">🌿</div>
+                        <h3 class="text-xl font-bold mb-4 text-acai">1. Tradición Indígena</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            Durante siglos, las tribus amazónicas consumieron açaí como alimento básico salado, acompañando pescado y representando hasta el 40% de su dieta diaria.
+                        </p>
+                    </div>
+                    <div class="p-10 card-modern">
+                        <div class="text-4xl mb-6">🥋</div>
+                        <h3 class="text-xl font-bold mb-4 text-acai">2. El Boom en Río</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            La familia Gracie popularizó la pulpa congelada con guaraná en los 80. Surfistas y atletas lo adoptaron rápidamente como su fuente de energía post-entrenamiento.
+                        </p>
+                    </div>
+                    <div class="p-10 card-modern">
+                        <div class="text-4xl mb-6">🌍</div>
+                        <h3 class="text-xl font-bold mb-4 text-acai">3. Fenómeno Global</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            Hoy, el "Açaí Bowl" es un símbolo mundial de estilo de vida saludable, destacando por su estética vibrante y su alto valor nutricional.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrición -->
+        <section id="nutricion" class="bg-[#F8F9FA] reveal">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-20">
+                    <h2 class="text-3xl md:text-5xl font-bold text-acai mb-6">Perfil Nutricional y Datos</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+                        Visualizamos la composición que lo convierte en un auténtico "superalimento".
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="bg-white p-10 card-modern">
+                        <h3 class="text-xl font-bold text-center mb-2">Composición de Macronutrientes</h3>
+                        <p class="text-xs text-center text-gray-400 mb-8 font-medium">Por 100g de pulpa pura</p>
+                        <div class="chart-container">
+                            <canvas id="macrosChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-10 card-modern">
+                        <h3 class="text-xl font-bold text-center mb-2">Poder Antioxidante (ORAC)</h3>
+                        <p class="text-xs text-center text-gray-400 mb-8 font-medium">Capacidad de Absorción de Radicales de Oxígeno</p>
+                        <div class="chart-container">
+                            <canvas id="antioxidantChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recetas -->
+        <section id="recetas" class="reveal">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold text-acai mb-6">Prepara el Bowl Perfecto</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+                        Elige tu estilo favorito y descubre los secretos para una textura cremosa.
+                    </p>
+                </div>
+
+                <div class="mb-16 flex justify-center">
+                    <div class="w-full max-w-5xl recipe-hero-container">
+                        <img src="assets/img/acaibowl.png" alt="Prepara el bowl perfecto" class="recipe-hero-image">
+                        <div class="recipe-hero-overlay">
+                            <div class="text-white max-w-xl">
+                                <span class="bg-[#F5DEB3] text-[#4A154B] px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">Maestría en Texturas</span>
+                                <h3 class="text-2xl md:text-3xl font-bold drop-shadow-md">El Arte del Bowl Artesanal</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-10">
+                    <div class="w-full md:w-1/3 flex flex-col gap-4" id="recipe-selector">
+                        <button data-recipe="clasico" class="recipe-btn active text-left px-8 py-5 rounded-xl text-gray-700 font-semibold hover:bg-gray-50 transition-all font-title">
+                            🌊 El Clásico Brasileño
+                        </button>
+                        <button data-recipe="tropical" class="recipe-btn text-left px-8 py-5 rounded-xl text-gray-700 font-semibold hover:bg-gray-50 transition-all font-title">
+                            🥭 Vibrante Tropical
+                        </button>
+                        <button data-recipe="proteico" class="recipe-btn text-left px-8 py-5 rounded-xl text-gray-700 font-semibold hover:bg-gray-50 transition-all font-title">
+                            💪 Power Proteico
+                        </button>
+                    </div>
+
+                    <div class="w-full md:w-2/3 bg-white rounded-2xl p-10 shadow-sm border border-gray-100 min-h-[450px]">
+                        <div id="recipe-content" class="fade-in">
+                            <!-- JS Content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pasión -->
+        <section id="pasion" class="bg-[#F8F9FA] reveal">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 lg:order-1">
+                        <h2 class="text-3xl md:text-5xl font-bold text-acai mb-8">Mi pasión por el Açaí</h2>
+                        <div class="space-y-6 text-gray-600 leading-relaxed text-lg font-light">
+                            <p>
+                                Mi fascinación por este pequeño fruto comenzó casi por casualidad. Lo que empezó como una búsqueda de alternativas más saludables para mis desayunos, rápidamente se convirtió en un viaje de descubrimiento sobre la biodiversidad amazónica.
+                            </p>
+                            <p>
+                                El açaí es un recordatorio de la conexión intrínseca entre nutrición y naturaleza. He pasado meses experimentando con texturas, buscando la pulpa más pura y entendiendo cómo la temperatura exacta puede transformar una comida simple en una experiencia sensorial increíble.
+                            </p>
+                            <p>
+                                Mi objetivo es compartir no solo datos técnicos, sino la emoción que siento al saber que cada bowl cuenta una historia.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 flex justify-center">
+                        <div class="pasion-img-wrapper">
+                            <img src="assets/img/asaipasion.png" alt="Mi pasión por el Açaí" class="pasion-img">
+                            <div class="pasion-img-overlay"></div>
+                            <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-5 rounded-xl shadow-lg z-10">
+                                <p class="text-acai font-bold text-base italic leading-snug">"Cada bowl es un lienzo de energía natural."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="reveal">
+            <div class="max-w-4xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold text-acai mb-6">Preguntas frecuentes</h2>
+                    <p class="text-gray-500 text-lg">Resolvemos tus dudas sobre este superalimento.</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="card-modern p-6 md:p-8">
+                        <h4 class="font-bold text-acai text-lg mb-2">¿Qué es el açaí?</h4>
+                        <p class="text-gray-500">El açaí es el fruto de una palmera nativa de la selva amazónica, conocido por su intenso color morado y su alta concentración de antioxidantes.</p>
+                    </div>
+                    <div class="card-modern p-6 md:p-8">
+                        <h4 class="font-bold text-acai text-lg mb-2">¿Cuáles son los beneficios del açaí?</h4>
+                        <p class="text-gray-500">Es rico en antocianinas, grasas saludables (Omega 3, 6 y 9), fibra y vitaminas, lo que ayuda a combatir el envejecimiento celular y mejorar la salud cardiovascular.</p>
+                    </div>
+                    <div class="card-modern p-6 md:p-8">
+                        <h4 class="font-bold text-acai text-lg mb-2">¿Cómo se consume tradicionalmente?</h4>
+                        <p class="text-gray-500">En la Amazonía se consume tradicionalmente como un alimento salado acompañando pescado o camarones, mientras que globalmente es popular en forma de sorbete dulce o bowls de frutas.</p>
+                    </div>
+                    <div class="card-modern p-6 md:p-8">
+                        <h4 class="font-bold text-acai text-lg mb-2">¿El açaí tiene mucho azúcar?</h4>
+                        <p class="text-gray-500">La fruta pura tiene un contenido de azúcar muy bajo. El azúcar suele provenir de los jarabes de guaraná o endulzantes añadidos durante su procesamiento comercial.</p>
+                    </div>
+                    <div class="card-modern p-6 md:p-8">
+                        <h4 class="font-bold text-acai text-lg mb-2">¿Cuál es la clave para un buen bowl de açaí?</h4>
+                        <p class="text-gray-500">La clave es la temperatura de la pulpa y usar fruta congelada para obtener una textura cremosa y espesa, similar a un helado, sin necesidad de añadir hielo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-acai text-white/60 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-3xl">🌴</span>
+                        <span class="font-bold text-xl text-white font-title">Açaí Explorer</span>
+                    </div>
+                    <p class="text-sm leading-loose mb-6">
+                        Un proyecto dedicado a difundir la riqueza nutricional y cultural del superalimento más emblemático de la Amazonía.
+                    </p>
+                    <!-- Redes Sociales -->
+                    <div class="flex items-center gap-5 mt-4">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-all transform hover:scale-110" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-all transform hover:scale-110" aria-label="Facebook">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-all transform hover:scale-110" aria-label="WhatsApp">
+                            <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest font-title">Contenidos</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#historia" class="hover:text-white transition-colors">Historia</a></li>
+                        <li><a href="#nutricion" class="hover:text-white transition-colors">Nutrición</a></li>
+                        <li><a href="#recetas" class="hover:text-white transition-colors">Recetas</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest font-title">Información</h4>
+                    <p class="text-sm">Proyecto Campaña 2024<br>Desarrollo Web Académico</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest font-title">Autor</h4>
+                    <p class="text-sm">Naira Medrano<br>hola@nairamedrano.com</p>
+                </div>
+            </div>
+            <div class="pt-10 border-t border-white/10 text-center text-xs">
+                <p>&copy; 2024 Açaí Explorer. Sin fines comerciales.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide Icons
+            lucide.createIcons();
+
+            // Scroll Reveal
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => observer.observe(el));
+
+            // Menu logic
+            const toggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('menu-overlay');
+            const close = document.getElementById('close-menu');
+            
+            const handleMenu = () => {
+                menu.classList.toggle('open');
+                overlay.classList.toggle('hidden');
+                setTimeout(() => overlay.classList.toggle('opacity-0'), 10);
+                document.body.classList.toggle('overflow-hidden');
+            };
+
+            toggle.addEventListener('click', handleMenu);
+            close.addEventListener('click', handleMenu);
+            overlay.addEventListener('click', handleMenu);
+            document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', handleMenu));
+
+            // Charts
+            new Chart(document.getElementById('macrosChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Grasas', 'Fibras', 'Proteínas', 'Carbos'],
+                    datasets: [{
+                        data: [50, 30, 10, 10], 
+                        backgroundColor: ['#4A154B', '#2E7D32', '#F5DEB3', '#D1C4E9'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } },
+                    cutout: '70%'
+                }
+            });
+
+            new Chart(document.getElementById('antioxidantChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Açaí', 'Cacao', 'Arándanos', 'Granada'],
+                    datasets: [{
+                        data: [102700, 80933, 4669, 4479],
+                        backgroundColor: ['#4A154B', '#795548', '#3F51B5', '#E91E63'],
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { display: false } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            // Recetas Logic
+            const recipes = {
+                clasico: {
+                    title: "El Clásico Brasileño",
+                    icon: "🌊",
+                    desc: "La esencia de las playas de Río. Puro y energético.",
+                    base: ["200g pulpa açaí", "1/2 plátano", "Jarabe de guaraná"],
+                    toppings: ["Granola", "Plátano fresco", "Miel"],
+                    tips: "La textura perfecta debe costar moverla con la cuchara."
+                },
+                tropical: {
+                    title: "Vibrante Tropical",
+                    icon: "🥭",
+                    desc: "Explosión de vitaminas con frutas de temporada.",
+                    base: ["200g pulpa açaí", "Mango congelado", "Piña"],
+                    toppings: ["Coco rallado", "Kiwi", "Semillas chía"],
+                    tips: "Añade un chorrito de agua de coco si está muy sólido."
+                },
+                proteico: {
+                    title: "Power Proteico",
+                    icon: "💪",
+                    desc: "Ideal para la recuperación muscular tras el ejercicio.",
+                    base: ["200g pulpa açaí", "Proteína de vainilla", "Mantequilla de cacahuete"],
+                    toppings: ["Nibs de cacao", "Almendras", "Fresas"],
+                    tips: "Mezcla la proteína con la fruta antes de batir."
+                }
+            };
+
+            const content = document.getElementById('recipe-content');
+            const btns = document.querySelectorAll('.recipe-btn');
+
+            function render(key) {
+                const r = recipes[key];
+                content.style.opacity = '0';
+                setTimeout(() => {
+                    content.innerHTML = `
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">${r.icon}</span>
+                            <h3 class="text-2xl font-bold text-acai font-title">${r.title}</h3>
+                        </div>
+                        <p class="text-gray-500 mb-8">${r.desc}</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h4 class="font-bold text-xs uppercase tracking-widest text-acai/40 mb-4">Ingredientes Base</h4>
+                                <ul class="space-y-2 text-sm text-gray-600">${r.base.map(i => `<li>• ${i}</li>`).join('')}</ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs uppercase tracking-widest text-acai/40 mb-4">Toppings Sugeridos</h4>
+                                <div class="flex flex-wrap gap-2">${r.toppings.map(t => `<span class="bg-gray-100 px-3 py-1 rounded-full text-xs font-medium text-gray-700">${t}</span>`).join('')}</div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl border border-dashed border-gray-200">
+                            <p class="text-xs text-gray-500 italic"><strong>Consejo Pro:</strong> ${r.tips}</p>
+                        </div>
+                    `;
+                    content.style.opacity = '1';
+                }, 150);
+            }
+
+            btns.forEach(b => b.addEventListener('click', () => {
+                btns.forEach(x => x.classList.remove('active'));
+                b.classList.add('active');
+                render(b.dataset.recipe);
+            }));
+            render('clasico');
+        });
+    </script>
+</body>
+</html>
