@@ -257,6 +257,20 @@
             background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent 70%);
         }
 
+        /* Botón Volver Arriba */
+        #back-to-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(10px);
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
         /* Animaciones */
         .reveal {
             opacity: 0;
@@ -445,6 +459,48 @@
             </div>
         </section>
 
+        <!-- Inspiración Visual -->
+        <section id="inspiracion" class="bg-white reveal">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold text-acai mb-6">Inspiración Visual</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+                        Explora a los referentes que están llevando la estética y el sabor del açaí al siguiente nivel.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Referencia 1 -->
+                    <div class="card-modern p-8 flex flex-col h-full">
+                        <div class="text-3xl mb-6">▶️</div>
+                        <h3 class="text-xl font-bold mb-2 text-acai">Down To Krunch</h3>
+                        <p class="text-gray-500 text-sm mb-6 flex-grow">Técnicas maestras para lograr la textura "thick" perfecta.</p>
+                        <a href="#" class="text-xs font-bold tracking-widest text-acai hover:opacity-70 transition-opacity uppercase">Explorar Canal</a>
+                    </div>
+                    <!-- Referencia 2 -->
+                    <div class="card-modern p-8 flex flex-col h-full">
+                        <div class="text-3xl mb-6">📸</div>
+                        <h3 class="text-xl font-bold mb-2 text-acai">@AcaiBrothers</h3>
+                        <p class="text-gray-500 text-sm mb-6 flex-grow">Inspiración visual desde Australia. Decoraciones simétricas.</p>
+                        <a href="#" class="text-xs font-bold tracking-widest text-acai hover:opacity-70 transition-opacity uppercase">Ver Perfil</a>
+                    </div>
+                    <!-- Referencia 3 -->
+                    <div class="card-modern p-8 flex flex-col h-full">
+                        <div class="text-3xl mb-6">🎬</div>
+                        <h3 class="text-xl font-bold mb-2 text-acai">Pro Home Cooks</h3>
+                        <p class="text-gray-500 text-sm mb-6 flex-grow">Guía exhaustiva para entender la historia y botánica.</p>
+                        <a href="#" class="text-xs font-bold tracking-widest text-acai hover:opacity-70 transition-opacity uppercase">Ver Vídeo</a>
+                    </div>
+                    <!-- Referencia 4 -->
+                    <div class="card-modern p-8 flex flex-col h-full">
+                        <div class="text-3xl mb-6">🌟</div>
+                        <h3 class="text-xl font-bold mb-2 text-acai">@Oakberry</h3>
+                        <p class="text-gray-500 text-sm mb-6 flex-grow">La referencia global para el formato clásico por capas.</p>
+                        <a href="#" class="text-xs font-bold tracking-widest text-acai hover:opacity-70 transition-opacity uppercase">Ver Marca</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Pasión -->
         <section id="pasion" class="bg-[#F8F9FA] reveal">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -511,6 +567,11 @@
 
     </main>
 
+    <!-- Botón Volver Arriba -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 z-[50] bg-acai text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 flex items-center justify-center transition-all backdrop-blur-md" aria-label="Volver arriba">
+        <i data-lucide="chevron-up" class="w-6 h-6"></i>
+    </button>
+
     <!-- Footer -->
     <footer class="bg-acai text-white/60 pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -572,6 +633,24 @@
                 });
             }, { threshold: 0.1 });
             revealElements.forEach(el => observer.observe(el));
+
+            // Back to Top Logic
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
 
             // Menu logic
             const toggle = document.getElementById('menu-toggle');
